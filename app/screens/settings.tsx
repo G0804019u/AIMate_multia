@@ -1,0 +1,62 @@
+import { View, Image, ScrollView } from 'react-native';
+
+import AnimatedView from '@/components/AnimatedView';
+import Avatar from '@/components/Avatar';
+import Header, { HeaderIcon } from '@/components/Header';
+import ListLink from '@/components/ListLink';
+import ThemedScroller from '@/components/ThemeScroller';
+import ThemedText from '@/components/ThemedText';
+import Section from '@/components/layout/Section';
+
+export default function ProfileScreen() {
+  return (
+    <AnimatedView
+      className="flex-1 bg-background"
+      animation="fadeIn"
+      duration={350}
+      playOnlyOnce={false}>
+      <Header showBackButton />
+      <ThemedScroller>
+        <Section
+          titleSize="3xl"
+          className="px-4 pb-10 pt-4"
+          title="Settings"
+          subtitle="Manage your account settings"
+        />
+
+        <View className="px-4">
+          <ListLink
+            title="Payments"
+            description="Manage payment methods"
+            icon="CreditCard"
+            href="/screens/profile/payments"
+          />
+          <ListLink
+            title="Notifications"
+            description="Push notifications, email notifications"
+            icon="Bell"
+            href="/screens/profile/notifications"
+          />
+          <ListLink
+            title="Currency"
+            description="USD - United states dollar"
+            icon="DollarSign"
+            href="/screens/profile/currency"
+          />
+          <ListLink
+            title="Help"
+            description="Contact support"
+            icon="HelpCircle"
+            href="/screens/help"
+          />
+          <ListLink
+            title="Logout"
+            description="Logout from your account"
+            icon="LogOut"
+            href="/screens/welcome-new"
+          />
+        </View>
+      </ThemedScroller>
+    </AnimatedView>
+  );
+}
